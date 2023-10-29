@@ -6,7 +6,9 @@ using Microsoft.Extensions.Configuration;
 
 namespace IBGE.Tests
 {
-    public class Tests
+    [TestFixture]
+    [Category("Location Fixture Tests")]
+    public class LocationRepositoryTests
     {
         private IbgeDbContext _dbContext;
         private LocationRepository _LocationRepository;
@@ -15,8 +17,8 @@ namespace IBGE.Tests
         public void SetUp()
         {
             var options = new DbContextOptionsBuilder<IbgeDbContext>()
-           .UseInMemoryDatabase(databaseName: "InMemoryDatabase")
-            .Options;
+                .UseInMemoryDatabase(databaseName: "InMemoryDatabase")
+                .Options;
 
             _dbContext = new IbgeDbContext(options);
             _dbContext.Database.EnsureCreated();
@@ -38,8 +40,10 @@ namespace IBGE.Tests
         }
 
         [Test]
-        public async Task Should_Inserts_Ibge_Entity()
+        [Category("Add Location valid")]
+        public async Task Should_Inserts_Location_Entity()
         {
+            // Arange
             var location = new Location { Id = "4319307", State = "SP", City = "São Paulo" };
 
             // Act
@@ -48,6 +52,23 @@ namespace IBGE.Tests
             // Assert
             var insertedLocation = await _dbContext.Locations.FirstOrDefaultAsync(x => "4319307".Equals(x.Id));
             Assert.That(insertedLocation, Is.EqualTo(location), "A entidade deveria ter sindo inserida");
+        }
+
+        [Test]
+        [Category("Remove location by id")]
+        public async Task Should_Remove_Location_EntityById()
+        {
+            // Arrange
+            var location = new Location { Id = "4319307", State = "SP", City = "São Paulo" };
+            await _dbContext.Locations.AddAsync(location);
+            await _dbContext.SaveChangesAsync();
+
+            // Act
+            await _LocationRepository.Delete(location.Id);
+
+            // Assert
+            var deletedLocation = await _dbContext.Locations.FirstOrDefaultAsync(x => "4319307".Equals(x.Id));
+            Assert.That(deletedLocation, Is.Null, "A entidade deveria ter sido excluída");
         }
     }
 }
