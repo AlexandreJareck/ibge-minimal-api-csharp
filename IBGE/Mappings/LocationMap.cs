@@ -1,4 +1,4 @@
-﻿using IBGE.Models;
+﻿using IBGE.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
