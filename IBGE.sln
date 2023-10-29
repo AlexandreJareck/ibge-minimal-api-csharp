@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IBGE", "IBGE\IBGE.csproj", "{391781C2-0445-4630-B078-022B070FDE48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IBGE", "IBGE\IBGE.csproj", "{391781C2-0445-4630-B078-022B070FDE48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IBGE.Tests", "IBGE.Tests\IBGE.Tests.csproj", "{E679143F-19B9-495C-96AF-ACB943112990}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{391781C2-0445-4630-B078-022B070FDE48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{391781C2-0445-4630-B078-022B070FDE48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{391781C2-0445-4630-B078-022B070FDE48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E679143F-19B9-495C-96AF-ACB943112990}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E679143F-19B9-495C-96AF-ACB943112990}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E679143F-19B9-495C-96AF-ACB943112990}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E679143F-19B9-495C-96AF-ACB943112990}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
