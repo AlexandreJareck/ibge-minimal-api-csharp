@@ -1,4 +1,4 @@
-﻿namespace IBGE.Models
+﻿namespace IBGE.Entities
 {
     public class Location : Entity
     {

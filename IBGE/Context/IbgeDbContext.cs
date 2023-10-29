@@ -1,5 +1,5 @@
-﻿using IBGE.Mappings;
-using IBGE.Models;
+﻿using IBGE.Entities;
+using IBGE.Mappings;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
