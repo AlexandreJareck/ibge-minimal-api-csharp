@@ -86,7 +86,7 @@ namespace IBGE.Tests
             await _LocationRepository.Update(location);
 
             // Assert
-            var updatedIbge = await _dbContext.Ibge.FirstOrDefaultAsync(x => "4319307".Equals(x.Id));
+            var updatedIbge = await _dbContext.Locations.FirstOrDefaultAsync(x => "4319307".Equals(x.Id));
             Assert.That(updatedIbge, Is.Not.Null, "Deveria exister um registro.");
             Assert.That(updatedIbge.City, Is.EqualTo("São Paulo"), "Deveria ter atualizado de Sao Paulo para São Paulo.");
         }
