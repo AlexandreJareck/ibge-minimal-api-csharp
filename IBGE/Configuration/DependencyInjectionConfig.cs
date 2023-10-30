@@ -4,6 +4,7 @@ using IBGE.DTO;
 using IBGE.FluentValidator;
 using IBGE.Interfaces;
 using IBGE.Repository;
+using IBGE.Services;
 
 namespace IBGE.Configuration
 {
@@ -12,6 +13,7 @@ namespace IBGE.Configuration
         public static void ConfigureDependencyInjection(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddScoped<ILocationRepository, LocationRepository>();
+            services.AddScoped<ILocationService, LocationService>();
 
             services.AddAutoMapper(typeof(AutoMapperProfile));
 
