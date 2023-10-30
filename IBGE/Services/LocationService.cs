@@ -5,19 +5,11 @@ namespace IBGE.Services
 {
     public class LocationService : ILocationService
     {
-        public Task Add(Location location)
-        {
-            throw new NotImplementedException();
-        }
+        private readonly ILocationRepository _locationRepository;
 
-        public Task Delete(string id)
+        public LocationService(ILocationRepository locationRepository)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> ProcessExcelFileAsync(IFormFile excelFile)
-        {
-            throw new NotImplementedException();
+            _locationRepository = locationRepository;
         }
 
         public Task<IList<Location>> Search(string search)
@@ -25,7 +17,22 @@ namespace IBGE.Services
             throw new NotImplementedException();
         }
 
-        public Task Update(Location location)
+        public async Task Add(Location location)
+        {
+            await _locationRepository.Add(location);
+        }
+
+        public async Task Update(Location location)
+        {
+            await _locationRepository.Update(location);
+        }
+
+        public async Task Delete(string id)
+        {
+            await _locationRepository.Delete(id);
+        }
+
+        public Task<int> ProcessExcelFileAsync(IFormFile excelFile)
         {
             throw new NotImplementedException();
         }
